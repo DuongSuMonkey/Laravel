@@ -15,8 +15,9 @@ class PageSeeder extends Seeder
         \DB::table('pages')->insert([
             "id"=>1,
             'story_id'=>1,
-            "name"=>'aaaa',
-            "title"=>'ddd',
+            "name"=>'apple',
+            "title"=>'apple',
+            "background_url"=>'j2FtITkWXWvEA2eeiolqNH1672904703836_trong.png',
             "content"=>'1'
         ]);
     }

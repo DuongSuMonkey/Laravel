@@ -28,6 +28,10 @@
             Title:
             <input type="text" name="title">
         </label><br><br>
+        <label for="background_url">
+            Background url:
+            <input type="text" name="background_url">
+        </label><br><br>
         <label for="content">
             Content:
             <input type="text" name="content">

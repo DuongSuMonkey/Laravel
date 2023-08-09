@@ -22,6 +22,10 @@
             Title:
             <input type="text" name="title"value="{{ $page->title }}">
         </label><br><br>
+        <label for="title">
+            Background url:
+            <input type="text" name="background_url"value="{{ $page->background_url }}">
+        </label><br><br>
         <label for="content">
             Content:
             <input type="text" name="content"value="{{ $page->content }}">

@@ -11,7 +11,5 @@ class stories extends Model
     protected $fillable=['Id','name','author','genre','status','content'];
     protected $table='stories';
     public $timestamps=false;
-    // const CREATE_AT='create';
-    // const UPDATE_UP='update';
     
 }

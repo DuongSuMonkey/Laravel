@@ -27,7 +27,7 @@ class AudioController extends Controller
     {
         $audio = $this->audioRepository->getById($id);
         return response()->json([$audio,
-       'path'=>  URL::asset('public/audio/'.$audio->file_name)
+       'path'=>  URL::asset('public/audios/'.$audio->file_name)
         ]
     );
     }
