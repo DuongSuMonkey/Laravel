@@ -56,3 +56,8 @@ Route::prefix('audio')->group (function(){
     Route::get('/', [Textcontroller::class, 'list']);
     Route::get('/show/{id}', [Textcontroller::class, 'details']);
 });
+//text
+Route::prefix('text')->group (function(){
+    Route::get('/', [Textcontroller::class, 'list']);
+    Route::get('/show/{id}', [Textcontroller::class, 'details']);
+});
