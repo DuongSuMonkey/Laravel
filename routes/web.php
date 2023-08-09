@@ -61,3 +61,8 @@ Route::prefix('text')->group (function(){
     Route::get('/', [Textcontroller::class, 'list']);
     Route::get('/show/{id}', [Textcontroller::class, 'details']);
 });
+//login
+Route::get('/login', [middlewarecontroller::class, 'show'])->name('login');
+Route::post('/protected-route',  [middlewarecontroller::class,'check'] )
+      ->middleware('checklogin'); 
+Route::get('/protected-route',  [middlewarecontroller::class,'check'] )  ->middleware('checklogin');
