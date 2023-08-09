@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class text extends Model
 {
     use HasFactory;
-    protected $fillable=['Id','name','content'];
+    protected $fillable=['Id','name','content','audio_id','page_id','XPos','YPos'];
     protected $table='text';
     public $timestamps=false;
 }

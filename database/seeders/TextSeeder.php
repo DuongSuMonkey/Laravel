@@ -16,7 +16,10 @@ class TextSeeder extends Seeder
             "id"=>1,
             "name"=>'aaaa',
             "content"=>'ddd',
-            "audio_id"=>'1'
+            "audio_id"=>'1',
+            'page_id'=>1,
+            'Xpos'=>0,
+            'YPos'=>0
         ]);
     }
 }
