@@ -42,3 +42,17 @@ Route::prefix('page')->group (function(){
     Route::get('/update/{id}', [PagesController::class, 'edit']);
     Route::post('update/{id}',[PagesController::class,'update']);
 });
+//audio
+Route::prefix('audio')->group (function(){
+    Route::get('/', [AudioController::class, 'list']);
+    Route::get('/show/{id}', [AudioController::class, 'details']);
+    Route::get('/create', [AudioController::class, 'create']);
+    Route::post('create', [AudioController::class, 'store']);
+    Route::get('/delete/{id}',  [AudioController::class,'delete']);
+    Route::get('/update/{id}', [AudioController::class, 'edit']);
+    Route::post('update/{id}',[AudioController::class,'update']);
+    });
+    Route::prefix('text')->group (function(){
+    Route::get('/', [Textcontroller::class, 'list']);
+    Route::get('/show/{id}', [Textcontroller::class, 'details']);
+});
