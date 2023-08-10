@@ -25,11 +25,11 @@ public function show($id)
 }
 public function store(Request $request){
     $validator = $request->validate([
-        'name' => 'required|string|min:1',
-        'author' => 'required|string|min:1',
-        'genre'=>'required|string|min:1',
-        'status'=>'required|string|min:1',
-        'content'=>'required|string|min:1',
+        'name' => 'required|string',
+        'author' => 'required|string',
+        'genre'=>'required|string',
+        'status'=>'required|string',
+        'content'=>'required|string',
     ]);
 
     if ($validator==false) {
@@ -49,11 +49,11 @@ public function edit($id){
 public function update(Request $request, $id){
     
     $validator = $request->validate([
-        'name' => 'required|string|min:1',
-        'author' => 'required|string|min:1',
-        'genre'=>'required|string|min:1',
-        'status'=>'required|string|min:1',
-        'content'=>'required|string|min:1',
+        'name' => 'required|string',
+        'author' => 'required|string',
+        'genre'=>'required|string',
+        'status'=>'required|string',
+        'content'=>'required|string',
     ]);
 
     if ($validator==false) {
@@ -62,7 +62,7 @@ public function update(Request $request, $id){
     $data=$request->all();
         $story = $this->stoiesRepository->update($id, $data);
         echo"success update story";
-   
+        return response()->json($story);
  
 }
 public function delete($id){

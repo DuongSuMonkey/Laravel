@@ -29,22 +29,31 @@ class PagesController extends Controller
     {
         $page = $this->pagesReponstory->getById($id);
         return response()->json([$page,
-       // 'path'=>  URL::asset('public/audio/'.$audio->file_name)
         ]
     );
     }
     public function create()
     {
+        
         return view('CrudPages\create');
     }
     public function store(Request $request){
-        // dd($request);
-            $data = $request->all();
-             //dd($data);
-             $page = $this->pagesReponstory->create($data);
-           // User::create($data);
-            echo"success create page";
-            return response()->json($page, 201);
+       
+    $validator = $request->validate([
+        'story_id' => 'required|string',
+        'name' => 'required|string',
+        'title'=>'required|string',
+        'background_url'=>'required|string',
+        'content'=>'required|string',
+    ]);
+
+    if ($validator==false) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+     $data = $request->all();
+     $page = $this->pagesReponstory->create($data);
+     echo"success create page";
+     return response()->json($page, 201);
     }
     public function edit($id){
            $page= $this->pagesReponstory->edit($id);
@@ -52,9 +61,21 @@ class PagesController extends Controller
     }
         
     public function update(Request $request, $id){
+        $validator = $request->validate([
+            'story_id' => 'required|string',
+            'name' => 'required|string',
+            'title'=>'required|string',
+            'background_url'=>'required|string',
+            'content'=>'required|string',
+        ]);
+    
+        if ($validator==false) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
             $data = $request->all();
             $page = $this->pagesReponstory->update($id, $data);
             echo"success update page";
+            return response()->json($data);
     }
     public function delete($id){
             $this->pagesReponstory->delete($id);
