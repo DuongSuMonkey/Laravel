@@ -19,7 +19,7 @@
             <input type="text" name="file_name"value="{{ $audio->file_name }}">
         </label><br><br>
         Page id:
-        <input type="text" name="name"value="{{ $audio->name }}">
+        <input type="text" name="name"value="{{ $audio->page_id }}">
     </label><br><br>
         <button type="submit">Edit audio</button>
     </form>

@@ -12,7 +12,7 @@ class AudioSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::table('audio')->insert([
+        \DB::table('audios')->insert([
             "id"=>1,
             'page_id'=>1,
             "name"=>'aaaa',

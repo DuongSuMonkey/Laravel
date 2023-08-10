@@ -7,25 +7,21 @@
     <title>Read Audios</title>
 </head>
 <body>
-    <h2>List users</h2>
+    <h2>List audios</h2>
     <table border="1">
         <tr>
             <td>ID</td>
             <td>Name</td>
-            <td>Author</td>
-            <td>Genre</td>
-            <td>Status</td>
-            <td>Content</td>
+            <td>File name</td>
+            <td>Page Id</td>
         </tr>
-        @foreach($users as $user)
+        @foreach($audios as $audio)
             <tr>
                 
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{  $user->author}}</td>
-                <td>{{  $user->genre }}</td>
-                <td>{{  $user->status }}</td>
-                <td>{{  $user->content}}</td>
+                <td>{{ $audio->id }}</td>
+                <td>{{ $audio->name }}</td>
+                <td>{{  $audio->file_name}}</td>
+                <td>{{  $audio->page_id }}</td>
             </tr>
         @endforeach
     </table>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class audio extends Model
 {
     use HasFactory;
-    protected $fillable=['Id','name','file_name'];
-    protected $table='audio';
+    protected $fillable=['Id','name','file_name','page_id'];
+    protected $table='audios';
     public $timestamps=false;
 }
