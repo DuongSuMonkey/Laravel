@@ -76,17 +76,6 @@ public function index(){
     $stories = $this->stoiesRepository->getAll();
     return response()->json( $stories);
 }
-public function showall($id)
-{
-    $story = stories::with('page')->find($id);
-    
-    if(!$story) {
-      //  return response()->json(['message' => 'Story not found'], 404);
-      echo 1;
-    }
-    
-    return response()->json($story, 200);
-}
 }
 
 
