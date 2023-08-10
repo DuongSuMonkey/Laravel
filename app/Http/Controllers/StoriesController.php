@@ -24,23 +24,23 @@ public function show($id)
     return response()->json($story);
 }
 public function store(Request $request){
-    $validator = $request->validate( [
-        'id' => 'required|int'|'unique',
-        'name' => 'required|string|min:1',
-        'author' => 'required|string|min:1',
-        'genre'=>'required|string|min:1',
-        'status'=>'required|string|min:1',
-        'content'=>'required|string|min:1',
-    ]);
+    // $validator = $request->validate( [
+    //     'id' => 'required|int'|'unique',
+    //     'name' => 'required|string|min:1',
+    //     'author' => 'required|string|min:1',
+    //     'genre'=>'required|string|min:1',
+    //     'status'=>'required|string|min:1',
+    //     'content'=>'required|string|min:1',
+    // ]);
 
-    if ($validator==false) {
-        return redirect()->back()->withErrors($validator);
-    }else{
-        $data = $request->all();
-        $story = $this->stoiesRepository->create($data);
+    // if ($validator==false) {
+    //     return redirect()->back()->withErrors($validator);
+    // }
+      $data = $request->all();
+      $story = $this->stoiesRepository->create($data);
        echo"success create story";
        return response()->json($story, 201);
-    }
+    
 }
 public function edit($id){
    $story=  $this->stoiesRepository->edit($id);
@@ -49,21 +49,21 @@ public function edit($id){
 
 public function update(Request $request, $id){
     
-    $validator = $request->validate([
-        'name' => 'required|string|min:1',
-        'author' => 'required|string|min:1',
-        'genre'=>'required|string|min:1',
-        'status'=>'required|string|min:1',
-        'content'=>'required|string|min:1',
-    ]);
+    // $validator = $request->validate([
+    //     'name' => 'required|string|min:1',
+    //     'author' => 'required|string|min:1',
+    //     'genre'=>'required|string|min:1',
+    //     'status'=>'required|string|min:1',
+    //     'content'=>'required|string|min:1',
+    // ]);
 
-    if ($validator==false) {
-        return redirect()->back()->withErrors($validator);
-    }else{
+    // if ($validator==false) {
+    //     return redirect()->back()->withErrors($validator);
+    // }else{
     $data=$request->all();
         $story = $this->stoiesRepository->update($id, $data);
         echo"success update story";
-    }
+   // }
  
 }
 public function delete($id){

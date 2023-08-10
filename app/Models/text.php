@@ -9,6 +9,6 @@ class text extends Model
 {
     use HasFactory;
     protected $fillable=['Id','name','content','audio_id','page_id','XPos','YPos'];
-    protected $table='text';
+    protected $table='texts';
     public $timestamps=false;
 }

@@ -13,68 +13,26 @@
          <label for="id">
             Id:
             <input type="text" name="id">
-            @error('id')
-            ID không hợp lệ
-            <?php
-            Log::channel('abuse')->info('id khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <label for="name">
             Name:
             <input type="text" name="name">
-            @error('name')
-            Name không hợp lệ
-            <?php
-            Log::channel('abuse')->info('name khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <label for="author">
             Author:
             <input type="text" name="author">
-            @error('author')
-            Author không hợp lệ
-            <?php
-            Log::channel('abuse')->info('author khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <label for="genre">
             Genre:
             <input type="text" name="genre">
-            @error('genre')
-            Genre không hợp lệ
-            <?php
-            Log::channel('abuse')->info('genre khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <label for="status">
             Status:
             <input type="text" name="status">
-            @error('status')
-            Status không hợp lệ
-            <?php
-            Log::channel('abuse')->info('status khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <label for="content">
             Content:
             <input type="text" name="content">
-            @error('content')
-            Content không hợp lệ
-            <?php
-            Log::channel('abuse')->info('content khong hop le',[
-        1])
-        ?>
-        @enderror
         </label><br><br>
         <button type="submit">Create stories</button>
     </form>

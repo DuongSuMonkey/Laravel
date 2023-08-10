@@ -18,6 +18,7 @@ class StoriesReponsitory
 
     public function create($data)
     {
+        
         return stories::create($data);
     }
     public function delete($id){
