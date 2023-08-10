@@ -60,7 +60,7 @@ public function update(Request $request, $id){
     if ($validator==false) {
         return redirect()->back()->withErrors($validator);
     }else{
-    
+    $data=$request->all();
         $story = $this->stoiesRepository->update($id, $data);
         echo"success update story";
     }
