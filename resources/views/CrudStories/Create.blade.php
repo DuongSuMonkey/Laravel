@@ -10,10 +10,10 @@
     <h2>Create Story</h2>
     <form action="" method="POST">
         @csrf
-         <label for="id">
+         {{-- <label for="id">
             Id:
             <input type="text" name="id">
-        </label><br><br>
+        </label><br><br> --}}
         <label for="name">
             Name:
             <input type="text" name="name">

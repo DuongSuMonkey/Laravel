@@ -13,24 +13,10 @@
          <label for="taikhoan">
             Tai khoan:
             <input type="text" name="taikhoan">
-            @error('id')
-                id khong hop le
-                <?php
-                Log::channel('abuse')->info('id khong hop le',[
-            1])
-            ?>
-            @enderror
         </label><br><br>
         <label for="Password">
             Password:
             <input type="text" name="Password">
-            @error('Password')
-            Password khong hop le
-            <?php
-            Log::channel('abuse')->info(' Password khong hop le',[
-        1])
-        ?>
-            @enderror
         </label><br><br>
         <button type="submit">Login</button>
     </form>

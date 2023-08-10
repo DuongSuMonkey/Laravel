@@ -8,11 +8,26 @@
     <title>Update Stories</title>
 </head>
 <body>
+    @isset($errors)
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endisset
     <h2>Edit stories</h2>
     <form action="{{ $story->id }}" method="POST">
         @csrf
+        <label for="name">
             Name:
             <input type="text" name="name"value="{{ $story->name }}">
+           {{-- @error('name')
+           name khong hop le
+            <?php
+            Log::channel('abuse')->info('name khong hop le',[
+        1])
+        ?>
+        @enderror --}}
         </label><br><br>
         <label for="author">
             Author:
