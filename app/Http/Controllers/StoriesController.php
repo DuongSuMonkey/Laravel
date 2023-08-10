@@ -28,7 +28,7 @@ public function store(Request $request){
     return response()->json($user, 201);
 }
 public function edit($id){
-    $user = stories::findOrFail($id);
+   $user=  $this->stoiesRepository->edit($id);
     return view('CrudStories\Update', compact('user'));
 }
 

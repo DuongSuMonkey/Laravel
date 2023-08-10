@@ -47,7 +47,7 @@ class PagesController extends Controller
             return response()->json($page, 201);
     }
     public function edit($id){
-            $page = page::findOrFail($id);
+           $page= $this->pagesReponstory->edit($id);
             return view('CrudPages\Update', compact('page'));
     }
         

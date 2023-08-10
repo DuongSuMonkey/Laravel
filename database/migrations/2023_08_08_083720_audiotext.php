@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('content');
             $table->integer('audio_id');
+            $table->integer('page_id');
+            $table->float('XPos');
+            $table->float('YPOs');
+
         });
     }
 

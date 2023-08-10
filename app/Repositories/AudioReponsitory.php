@@ -30,4 +30,8 @@ class AudioReponsitory
         $audio->update($data);
         return $audio;
     }
+    public function edit($id){
+        $user = audio::findOrFail($id);
+        return $user;
+   }
 }

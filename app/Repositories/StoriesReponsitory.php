@@ -30,4 +30,8 @@ class StoriesReponsitory
         $user->update($data);
         return $user;
     }
+    public function edit($id){
+         $user = stories::findOrFail($id);
+         return $user;
+    }
 }

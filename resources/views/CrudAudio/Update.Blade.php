@@ -14,10 +14,13 @@
             Name:
             <input type="text" name="name"value="{{ $audio->name }}">
         </label><br><br>
-        <label for="author">
+        <label for="file_name">
             File name:
             <input type="text" name="file_name"value="{{ $audio->file_name }}">
         </label><br><br>
+        Page id:
+        <input type="text" name="name"value="{{ $audio->name }}">
+    </label><br><br>
         <button type="submit">Edit audio</button>
     </form>
 
