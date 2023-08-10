@@ -34,26 +34,25 @@ class PagesController extends Controller
     }
     public function create()
     {
-        
         return view('CrudPages\create');
     }
     public function store(Request $request){
        
-    $validator = $request->validate([
+       $validator = $request->validate([
         'story_id' => 'required|string',
         'name' => 'required|string',
         'title'=>'required|string',
         'background_url'=>'required|string',
         'content'=>'required|string',
-    ]);
+        ]);
 
-    if ($validator==false) {
-        return redirect()->back()->withErrors($validator)->withInput();
-    }
-     $data = $request->all();
-     $page = $this->pagesReponstory->create($data);
-     echo"success create page";
-     return response()->json($page, 201);
+        if ($validator==false) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $data = $request->all();
+        $page = $this->pagesReponstory->create($data);
+        echo"success create page";
+        return response()->json($page, 201);
     }
     public function edit($id){
            $page= $this->pagesReponstory->edit($id);

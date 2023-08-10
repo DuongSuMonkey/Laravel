@@ -11,6 +11,7 @@
     <h2>Edit audio</h2>
     <form action="{{ $audio->id }}" method="POST">
         @csrf
+
             Name:
             <input type="text" name="name"value="{{ $audio->name }}">
         </label><br><br>
@@ -19,7 +20,7 @@
             <input type="text" name="file_name"value="{{ $audio->file_name }}">
         </label><br><br>
         Page id:
-        <input type="text" name="name"value="{{ $audio->page_id }}">
+        <input type="text" name="page_id"value="{{ $audio->page_id }}">
     </label><br><br>
         <button type="submit">Edit audio</button>
     </form>
