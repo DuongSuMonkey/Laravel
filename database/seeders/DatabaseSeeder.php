@@ -22,8 +22,9 @@ class DatabaseSeeder extends Seeder
         //    usersender::class,
         //    Storyseeder::class,
         //     AudioSeeder::class,
-            TextSeeder::class
+          //  TextSeeder::class
        // PageSeeder::class
+        TouchesSeeder::class
         ]);
         
     }
