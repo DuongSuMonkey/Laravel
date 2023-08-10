@@ -25,12 +25,12 @@ public function show($id)
 }
 public function store(Request $request){
     $validator = $request->validate( [
-        'id' => 'required|int|required',
-        'name' => 'required|string|min:1|required',
-        'author' => 'required|string|min:1|required',
-        'genre'=>'required|string|min:1|required',
-        'status'=>'required|string|min:1|required',
-        'content'=>'required|string|min:1|required',
+        'id' => 'required|int'|'unique',
+        'name' => 'required|string|min:1',
+        'author' => 'required|string|min:1',
+        'genre'=>'required|string|min:1',
+        'status'=>'required|string|min:1',
+        'content'=>'required|string|min:1',
     ]);
 
     if ($validator==false) {
@@ -50,11 +50,11 @@ public function edit($id){
 public function update(Request $request, $id){
     
     $validator = $request->validate([
-        'name' => 'required|string|min:1|required',
-        'author' => 'required|string|min:1|required',
-        'genre'=>'required|string|min:1|required',
-        'status'=>'required|string|min:1|required',
-        'content'=>'required|string|min:1|required',
+        'name' => 'required|string|min:1',
+        'author' => 'required|string|min:1',
+        'genre'=>'required|string|min:1',
+        'status'=>'required|string|min:1',
+        'content'=>'required|string|min:1',
     ]);
 
     if ($validator==false) {
@@ -75,6 +75,17 @@ public function delete($id){
 public function index(){
     $stories = $this->stoiesRepository->getAll();
     return response()->json( $stories);
+}
+public function showall($id)
+{
+    $story = stories::with('page')->find($id);
+    
+    if(!$story) {
+      //  return response()->json(['message' => 'Story not found'], 404);
+      echo 1;
+    }
+    
+    return response()->json($story, 200);
 }
 }
 

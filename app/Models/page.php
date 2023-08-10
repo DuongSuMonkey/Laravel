@@ -11,4 +11,5 @@ class page extends Model
     protected $fillable=['Id','story_id','name','title','background_url','content'];
     protected $table='pages';
     public $timestamps=false;
+  
 }
