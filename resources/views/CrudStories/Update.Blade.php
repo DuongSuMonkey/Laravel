@@ -1,37 +1,4 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Edit user</h2>
-    <form action="/update/{{ $user->id }}" method="POST">
-        @csrf
-        {{-- <label for="id">
-            Id:
-            <input type="text" name="id" value="{{ $user->Id }}">
-            
-        </label><br><br> --}}
-        {{-- <label for="Name">
-            Name:
-            <input type="text" name="name" value="{{ $user->name }}">
-        </label><br><br>
-        <label for="Age">
-            Age:
-            <input type="text" name="age"value="{{ $user->age }}">
-        </label><br><br>
-        <label for="Sex">
-            Sex:
-            <input type="text" name="sex"value="{{ $user->sex }}">
-        </label><br><br>
-        <button type="submit">Edit user</button>
-    </form>
 
-</body>
-</html> --}} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,26 +9,61 @@
 </head>
 <body>
     <h2>Edit stories</h2>
-    <form action="{{ $user->id }}" method="POST">
+    <form action="{{ $story->id }}" method="POST">
         @csrf
             Name:
-            <input type="text" name="name"value="{{ $user->name }}">
+            <input type="text" name="name"value="{{ $story->name }}">
+            @error('name')
+            Name không hợp lệ
+            <?php
+            Log::channel('abuse')->info('Name khong hop le',[
+        1])
+        ?>
+        @enderror
         </label><br><br>
         <label for="author">
             Author:
-            <input type="text" name="author"value="{{ $user->author }}">
+            <input type="text" name="author"value="{{ $story->author }}">
+            @error('author')
+            Author không hợp lệ
+            <?php
+            Log::channel('abuse')->info('Author khong hop le',[
+        1])
+        ?>
+        @enderror
         </label><br><br>
         <label for="genre">
             Genre:
-            <input type="text" name="genre"value="{{ $user->genre }}">
+            <input type="text" name="genre"value="{{ $story->genre }}">
+            @error('genre')
+            Genre không hợp lệ
+            <?php
+            Log::channel('abuse')->info('Genre khong hop le',[
+        1])
+        ?>
+        @enderror
         </label><br><br>
         <label for="status">
             Status:
-            <input type="text" name="status"value="{{ $user->status }}">
+            <input type="text" name="status"value="{{ $story->status }}">
+            @error('status')
+            Status không hợp lệ
+            <?php
+            Log::channel('abuse')->info('Status khong hop le',[
+        1])
+        ?>
+        @enderror
         </label><br><br>
         <label for="content">
             Content:
-            <input type="text" name="content"value="{{ $user->content }}">
+            <input type="text" name="content"value="{{ $story->content }}">
+            @error('content')
+            Content không hợp lệ
+            <?php
+            Log::channel('abuse')->info('Content khong hop le',[
+        1])
+        ?>
+        @enderror
         </label><br><br>
         <button type="submit">Edit stories</button>
     </form>

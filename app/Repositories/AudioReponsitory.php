@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\audio;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 class AudioReponsitory
 {
     public function getById($id)
@@ -18,6 +19,7 @@ class AudioReponsitory
 
     public function create($data)
     {
+        
         return audio::create($data);
     }
     public function delete($id){

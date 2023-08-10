@@ -21,17 +21,17 @@ class StoriesReponsitory
         return stories::create($data);
     }
     public function delete($id){
-      $user=stories::findOrFail($id);
-      return  $user->delete();
+      $story=stories::findOrFail($id);
+      return  $story->delete();
     }
     public function update($id, $data)
     {
-        $user = stories::findOrFail($id);
-        $user->update($data);
-        return $user;
+        $story = stories::findOrFail($id);
+        $story->update($data);
+        return $story;
     }
     public function edit($id){
-         $user = stories::findOrFail($id);
-         return $user;
+         $story = stories::findOrFail($id);
+         return $story;
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Repositories\AudioReponsitory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
-
+use Illuminate\Support\Facades\Validator;
 class AudioController extends Controller
 {
     protected $audioRepository;
@@ -35,10 +35,21 @@ class AudioController extends Controller
         return view('CrudAudio\create');
     }
     public function store(Request $request){
+        $validator = $request->validate( [
+            'id' => 'required|int|required',
+            'name' => 'required|string|min:1|required',
+            'file_name' => 'required|string|min:1|required',
+            'page_id'=>'required|int|min:1|required'
+        ]);
+
+        if ($validator==false) {
+            return redirect()->back()->withErrors($validator);
+        }else{
         $data = $request->all();
-         $audio = $this->audioRepository->create($data);
-        echo"success create user";
+        $audio = $this->audioRepository->create($data);
+        echo"success create audio";
         return response()->json($audio, 201);
+        }
     }
     public function edit($id){
         $audio=$this->audioRepository->edit($id);

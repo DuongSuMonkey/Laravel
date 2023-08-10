@@ -19,6 +19,7 @@
         <label for="name">
             Name:
             <input type="text" name="name">
+            
         </label><br><br>
         <label for="file_name">
             File name:
