@@ -41,11 +41,6 @@ public function store(Request $request){
        return response()->json($story, 201);
     
 }
-public function edit($id){
-   $story=  $this->stoiesRepository->edit($id);
-    return view('CrudStories\Update', compact('story'));
-}
-
 public function update(Request $request, $id){
     
     $validator = $request->validate([
@@ -62,7 +57,7 @@ public function update(Request $request, $id){
     $data=$request->all();
         $story = $this->stoiesRepository->update($id, $data);
         echo"success update story";
-        return response()->json($story);
+    return response()->json($story);
  
 }
 public function delete($id){

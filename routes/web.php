@@ -24,3 +24,4 @@ Route::get('/',function(){
     return view('welcome');
 });
 Route::get('/login', [middlewarecontroller::class, 'show'])->name('login');
+Route::get('/update/{id}', [PagesController::class, 'update']);

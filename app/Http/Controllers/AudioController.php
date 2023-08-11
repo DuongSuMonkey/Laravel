@@ -51,11 +51,6 @@ class AudioController extends Controller
         return response()->json($audio, 201);
         }
     }
-    public function edit($id){
-        $audio=$this->audioRepository->edit($id);
-        return view('CrudAudio\Update', compact('audio'));
-    }
-    
     public function update(Request $request, $id){
         $data = $request->all();
         $audio = $this->audioRepository->update($id, $data);

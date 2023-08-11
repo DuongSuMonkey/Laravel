@@ -15,9 +15,9 @@ class PagesController extends Controller
 
     protected $pagesReponstory;
     
-    public function __construct(PagesRepository $pagesReponstory)
+    public function __construct(PagesRepository $pagesRepostory)
     {
-        $this->pagesReponstory = $pagesReponstory;
+        $this->pagesReponstory = $pagesRepostory;
     }
     public function list()
     {
@@ -53,10 +53,6 @@ class PagesController extends Controller
         $page = $this->pagesReponstory->create($data);
         echo"success create page";
         return response()->json($page, 201);
-    }
-    public function edit($id){
-           $page= $this->pagesReponstory->edit($id);
-            return view('CrudPages\Update', compact('page'));
     }
         
     public function update(Request $request, $id){
