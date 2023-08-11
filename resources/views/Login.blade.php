@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form action="protected-route" method="POST">
+    <form action="api/protected-route" method="POST">
         @csrf
          <label for="taikhoan">
             Tai khoan:

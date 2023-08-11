@@ -35,9 +35,15 @@ class middlewarecontroller extends Controller
              return response()->json(['message' => 'Người dùng không tồn tại'], 404);
          }else{
           if($user->Type=='admin')
-          return view('protected',compact('user'));
+         // return view('protected',compact('user'));
+         return response()->json([
+          'message' => " login by admin",
+      ]);
         else{
-          return view('userInterface',compact('user'));
+         // return view('userInterface',compact('user'));
+         return response()->json([
+          'message' => " login by user",
+      ]);
         }
          }
        }

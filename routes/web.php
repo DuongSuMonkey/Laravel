@@ -23,3 +23,4 @@ use App\Http\Controllers\AudioController;
 Route::get('/',function(){
     return view('welcome');
 });
+Route::get('/login', [middlewarecontroller::class, 'show'])->name('login');
