@@ -31,7 +31,6 @@ public function store(Request $request){
         'status'=>'required|string',
         'content'=>'required|string',
     ]);
-
     if ($validator==false) {
         return redirect()->back()->withErrors($validator);
     }
@@ -42,7 +41,6 @@ public function store(Request $request){
     
 }
 public function update(Request $request, $id){
-    
     $validator = $request->validate([
         'name' => 'required|string',
         'author' => 'required|string',
