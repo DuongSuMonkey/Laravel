@@ -13,21 +13,21 @@ use Illuminate\Support\Facades\URL;
 class PagesController extends Controller
 {
 
-    protected $pagesReponstory;
+    protected $pagesRepository;
     
-    public function __construct(PagesRepository $pagesReponstory)
+    public function __construct(PagesRepository $pagesRepository)
     {
-        $this->pagesReponstory = $pagesReponstory;
+        $this->pagesRepository = $pagesRepository;
     }
     public function list()
     {
-        $pages = $this->pagesReponstory->getAll();
+        $pages = $this->pagesRepository->getAll();
         return response()->json($pages);
     }
     
     public function details($id)
     {
-        $page = $this->pagesReponstory->getById($id);
+        $page = $this->pagesRepository->getById($id);
         return response()->json([$page,
         ]
     );
@@ -50,15 +50,10 @@ class PagesController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         $data = $request->all();
-        $page = $this->pagesReponstory->create($data);
+        $page = $this->pagesRepository->create($data);
         echo"success create page";
         return response()->json($page, 201);
     }
-    public function edit($id){
-           $page= $this->pagesReponstory->edit($id);
-            return view('CrudPages\Update', compact('page'));
-    }
-        
     public function update(Request $request, $id){
         $validator = $request->validate([
             'story_id' => 'required|string',
@@ -72,12 +67,12 @@ class PagesController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
             $data = $request->all();
-            $page = $this->pagesReponstory->update($id, $data);
+            $page = $this->pagesRepository->update($id, $data);
             echo"success update page";
             return response()->json($data);
     }
     public function delete($id){
-            $this->pagesReponstory->delete($id);
+            $this->pagesRepository->delete($id);
             return response()->json([
                 'message' => "page with id $id has been deleted.",
         ]);

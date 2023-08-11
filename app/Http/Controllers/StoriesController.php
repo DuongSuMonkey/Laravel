@@ -31,7 +31,6 @@ public function store(Request $request){
         'status'=>'required|string',
         'content'=>'required|string',
     ]);
-
     if ($validator==false) {
         return redirect()->back()->withErrors($validator);
     }
@@ -41,13 +40,7 @@ public function store(Request $request){
        return response()->json($story, 201);
     
 }
-public function edit($id){
-   $story=  $this->stoiesRepository->edit($id);
-    return view('CrudStories\Update', compact('story'));
-}
-
 public function update(Request $request, $id){
-    
     $validator = $request->validate([
         'name' => 'required|string',
         'author' => 'required|string',
