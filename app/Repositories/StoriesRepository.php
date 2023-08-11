@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\stories;
+use App\Models\stories; 
 
-class StoriesReponsitory
+class StoriesRepository implements RepositoryInterface
 {
     public function getById($id)
     {
@@ -30,9 +30,5 @@ class StoriesReponsitory
         $story = stories::findOrFail($id);
         $story->update($data);
         return $story;
-    }
-    public function edit($id){
-         $story = stories::findOrFail($id);
-         return $story;
     }
 }

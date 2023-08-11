@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TextReponsitory;
+use App\Repositories\TextRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\text;
 use Illuminate\Support\Facades\DB;
-use App\Repositories\AudioReponsitory;
+use App\Repositories\AudioRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 class Textcontroller extends Controller
 {
     protected $textRepository;
 
-    public function __construct(TextReponsitory $textRepository)
+    public function __construct(TextRepository $textRepository)
     {
         $this->textRepository = $textRepository;
     }

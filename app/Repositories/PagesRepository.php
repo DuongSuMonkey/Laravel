@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\page;
 use Illuminate\Support\Facades\Storage;
-class PagesReponstory
+class PagesRepository implements RepositoryInterface
 {
     public function getById($id)
     {
@@ -30,8 +30,4 @@ class PagesReponstory
         $page->update($data);
         return $page;
     }
-    public function edit($id){
-        $page = page::findOrFail($id);
-        return $page;
-   }
 }

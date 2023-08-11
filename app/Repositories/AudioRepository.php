@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\audio;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-class AudioReponsitory
+class AudioRepository implements RepositoryInterface
 {
     public function getById($id)
     {
@@ -32,8 +32,4 @@ class AudioReponsitory
         $audio->update($data);
         return $audio;
     }
-    public function edit($id){
-        $user = audio::findOrFail($id);
-        return $user;
-   }
 }

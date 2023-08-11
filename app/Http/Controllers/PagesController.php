@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\page;
 use Illuminate\Support\Facades\DB;
-use App\Repositories\PagesReponstory;
+use App\Repositories\PagesRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 class PagesController extends Controller
@@ -15,7 +15,7 @@ class PagesController extends Controller
 
     protected $pagesReponstory;
     
-    public function __construct(PagesReponstory $pagesReponstory)
+    public function __construct(PagesRepository $pagesReponstory)
     {
         $this->pagesReponstory = $pagesReponstory;
     }

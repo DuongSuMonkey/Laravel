@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\text;
 use Illuminate\Support\Facades\Storage;
-class TextReponsitory
+class TextRepository implements RepositoryInterface
 {
     public function getById($id)
     {
@@ -15,5 +15,15 @@ class TextReponsitory
     {
 
         return text::all();
+    }
+    public function delete($id){
+     
+    }
+    public function update($id, $data)
+    {
+ 
+    }
+    public function create($data){
+
     }
 }

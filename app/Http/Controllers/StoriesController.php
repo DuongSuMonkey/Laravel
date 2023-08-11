@@ -4,14 +4,14 @@ use Illuminate\Http\Request;
 use App\Models\stories;
 use App\Models\testdb;
 use Illuminate\Support\Facades\DB;
-use App\Repositories\StoriesReponsitory;
+use App\Repositories\StoriesRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class StoriesController extends Controller{
     protected $stoiesRepository;
 
-    public function __construct(StoriesReponsitory $stoiesRepository)
+    public function __construct(StoriesRepository $stoiesRepository)
     {
         $this->stoiesRepository = $stoiesRepository;
     }

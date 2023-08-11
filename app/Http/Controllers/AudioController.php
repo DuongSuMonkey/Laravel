@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\audio;
 use Illuminate\Support\Facades\DB;
-use App\Repositories\AudioReponsitory;
+use App\Repositories\AudioRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +12,7 @@ class AudioController extends Controller
 {
     protected $audioRepository;
 
-    public function __construct(AudioReponsitory $audioRepository)
+    public function __construct(AudioRepository $audioRepository)
     {
         $this->audioRepository = $audioRepository;
     }
