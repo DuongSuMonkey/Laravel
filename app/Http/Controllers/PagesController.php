@@ -14,16 +14,10 @@ class PagesController extends Controller
 {
 
     protected $pagesRepository;
-    
-<<<<<<< HEAD
+
     public function __construct(PagesRepository $pagesRepostory)
     {
-        $this->pagesReponstory = $pagesRepostory;
-=======
-    public function __construct(PagesRepository $pagesRepository)
-    {
-        $this->pagesRepository = $pagesRepository;
->>>>>>> 994c7df (Remove function edit in the controllers)
+        $this->pagesRepository = $pagesRepostory;
     }
     public function list()
     {
@@ -60,10 +54,6 @@ class PagesController extends Controller
         echo"success create page";
         return response()->json($page, 201);
     }
-<<<<<<< HEAD
-        
-=======
->>>>>>> 994c7df (Remove function edit in the controllers)
     public function update(Request $request, $id){
         $validator = $request->validate([
             'story_id' => 'required|string',
