@@ -4,18 +4,48 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-
-class User extends Model
+class User extends Model implements Authenticatable
 {
 use HasFactory;
-protected $fillable=['Id','taikhoan','password','name','age','sex','Type'];
+protected $fillable=['Id','email','password','name'];
 protected $table='users';
-public $timestamps=false;
-// const CREATE_AT='create';
-// const UPDATE_UP='update';
-protected  $attributes=[
-'age'=>5
+protected $hidden = [
+    'password', 'remember_token',
 ];
-   
+public $timestamps=false;
+
+    
+    public function getAuthIdentifierName()
+    {
+        return 'id';
+    }
+    
+    public function getAuthIdentifier()
+    {
+        return $this->{$this->getAuthIdentifierName()};
+    }
+    
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+    
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+    
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+    
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
+
+
 }

@@ -16,7 +16,7 @@ class checklogin
      */
     public function handle(Request $request, Closure $next): Response
     {   
-         $user =  User::where('taikhoan', $request->taikhoan)->first();
+         $user =  User::where('email', $request->email)->first();
          if (!$user) {
             return Redirect::route('login')->with('error', 'Người dùng không tồn tại');
         } else {

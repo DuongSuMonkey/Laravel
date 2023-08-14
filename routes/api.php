@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\middlewarecontroller;
 use App\Http\Controllers\StoriesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AudioController;
@@ -52,5 +51,5 @@ Route::prefix('text')->group (function(){
     Route::get('/show/{id}', [Textcontroller::class, 'details']);
 });
 //login
-Route::post('/protected-route',  [middlewarecontroller::class,'check'] )
-     ->middleware('checklogin');
+// Route::post('/protected-route',  [middlewarecontroller::class,'check'] )
+//      ->middleware('checklogin');

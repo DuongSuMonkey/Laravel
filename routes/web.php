@@ -1,15 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Textcontroller;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\StoriesController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\middlewarecontroller;
-use Illuminate\Http\Request;
-use App\Models\stoires;
-use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\AudioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +15,17 @@ use App\Http\Controllers\AudioController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',function(){
+
+Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', [middlewarecontroller::class, 'show'])->name('login');
-Route::get('/update/{id}', [PagesController::class, 'update']);
+Route::get('/dashboard', [LoginController::class,'index'])->middleware('auth')->name('home');;
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+require __DIR__.'/auth.php';

@@ -16,12 +16,9 @@ class usersender extends Seeder
     {
         \DB::table('users')->insert([
             "id"=>1,
-            "taikhoan"=>'admin',
+            "email"=>'admin@tony.com',
             "password"=>'12345',
             "name"=>'t',
-            "sex"=>'nam',
-            "age"=>8,
-            "Type"=>'admin',
         ]);
     }
 }
