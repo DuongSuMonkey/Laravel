@@ -9,7 +9,7 @@
 </head>
 <body>
     <h2>Create Page</h2>
-    <form action="" method="POST">
+    <form action="/api/page/create" method="POST">
         @csrf
          <label for="id">
             Id:

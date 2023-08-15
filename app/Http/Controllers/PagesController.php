@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\page;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\PagesRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
 class PagesController extends Controller
 {
 
@@ -39,7 +37,7 @@ class PagesController extends Controller
     public function store(Request $request){
        
        $validator = $request->validate([
-        'story_id' => 'required|string',
+        'story_id' => 'required|int',
         'name' => 'required|string',
         'title'=>'required|string',
         'background_url'=>'required|string',
@@ -56,7 +54,7 @@ class PagesController extends Controller
     }
     public function update(Request $request, $id){
         $validator = $request->validate([
-            'story_id' => 'required|string',
+            'story_id' => 'required|int',
             'name' => 'required|string',
             'title'=>'required|string',
             'background_url'=>'required|string',

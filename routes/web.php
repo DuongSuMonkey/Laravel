@@ -3,10 +3,12 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\isAdmin;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Textcontroller;
 use Illuminate\Support\Facades\Route;
-
-
+use Spatie\Activitylog\Models\Activity;
+use Spatie\Activitylog\LogOptions;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    
     return view('welcome');
+});
+Route::get('/activity', function(){
+    return Activity::all()->last();
 });
 Route::get('/dashboard', [LoginController::class,'index'])->name('dashboard');
 Route::get('admin/dashboard', [LoginController::class,'admin'])->middleware( 'is_admin')->name('admin');

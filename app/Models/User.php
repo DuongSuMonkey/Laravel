@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
-
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 class User extends Model implements Authenticatable
 {
-use HasFactory;
-protected $fillable=['Id','email','password','name'];
-protected $table='users';
-protected $hidden = [
-    'password', 'remember_token',
-];
-public $timestamps=false;
-
+    use HasFactory,LogsActivity;
+    protected $fillable=['Id','email','password','name'];
+    protected $table='users';
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logAll();
     
+    }
+    public $timestamps=false;
     public function getAuthIdentifierName()
     {
         return 'id';
@@ -47,5 +51,5 @@ public $timestamps=false;
         return 'remember_token';
     }
 
-
+   
 }

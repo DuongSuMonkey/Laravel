@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Closure;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Models\Activity;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
 class checklogin
@@ -20,6 +22,7 @@ class checklogin
          if (!$user) {
             return Redirect::route('login')->with('error', 'Người dùng không tồn tại');
         } else {
+
             return $next($request);
         }
     }

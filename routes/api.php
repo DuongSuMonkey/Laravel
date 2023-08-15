@@ -35,7 +35,7 @@ Route::prefix('page')->group (function(){
     Route::get('/show/{id}', [PagesController::class, 'details']);
     Route::post('create', [PagesController::class, 'store']);
     Route::delete('/delete/{id}',  [PagesController::class,'delete']);
-    Route::put('update/{id}',[PagesController::class,'update']);
+    Route::put('/update/{id}',[PagesController::class,'update']);
 });
 //audio
 Route::prefix('audio')->group (function(){
@@ -50,6 +50,3 @@ Route::prefix('text')->group (function(){
     Route::get('/', [Textcontroller::class, 'list']);
     Route::get('/show/{id}', [Textcontroller::class, 'details']);
 });
-//login
-// Route::post('/protected-route',  [middlewarecontroller::class,'check'] )
-//      ->middleware('checklogin');

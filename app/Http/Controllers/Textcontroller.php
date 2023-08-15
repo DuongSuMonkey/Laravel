@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activitylog;
 use App\Repositories\TextRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Repositories\AudioRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use Spatie\Activitylog\Models\Activity;
 class Textcontroller extends Controller
 {
     protected $textRepository;
@@ -23,7 +25,7 @@ class Textcontroller extends Controller
          $texts = $this->textRepository->getAll();
         return response()->json($texts);
     }
-
+   
     public function details($id)
     {
         $text = $this->textRepository->getById($id);

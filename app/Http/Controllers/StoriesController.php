@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\stories;
-use App\Models\testdb;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\StoriesRepository;
 use Illuminate\Support\Facades\Hash;
