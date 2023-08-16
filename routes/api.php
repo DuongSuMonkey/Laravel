@@ -50,3 +50,4 @@ Route::prefix('text')->group (function(){
     Route::get('/', [Textcontroller::class, 'list']);
     Route::get('/show/{id}', [Textcontroller::class, 'details']);
 });
+Route::get('/full/{id}', [StoriesController::class, 'getFullData']);

@@ -18,4 +18,8 @@ class stories extends Model
         return LogOptions::defaults()->logAll()
        ;
     }
+    public function pages()
+  {
+    return $this->hasMany(page::class, 'story_id');
+  }
 }

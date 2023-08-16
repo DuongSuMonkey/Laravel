@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\stories;
+use App\Models\page;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\StoriesRepository;
 use Illuminate\Support\Facades\Hash;
@@ -67,6 +68,16 @@ public function index(){
     $stories = $this->stoiesRepository->getAll();
     return response()->json( $stories);
 }
+public function getFullData(Request $request,$id)
+    {
+
+    $story = stories::with('pages')->find($id);
+
+        return response()->json([
+            'story' => $story,
+            
+        ]);
+    }
 }
 
 
