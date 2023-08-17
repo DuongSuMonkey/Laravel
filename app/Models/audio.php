@@ -18,4 +18,5 @@ class audio extends Model
         return LogOptions::defaults()->logAll()
        ;
     }
+    
 }

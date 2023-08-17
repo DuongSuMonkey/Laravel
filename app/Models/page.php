@@ -18,4 +18,10 @@ class page extends Model
         return LogOptions::defaults()->logAll()
        ;
     }
+    public function audios() {
+        return $this->hasMany(audio::class,'page_id');
+    }
+    public function texts() {
+        return $this->hasMany(text::class,'page_id');
+    }
 }

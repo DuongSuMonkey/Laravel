@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\audio;
+use App\Models\text;
 use Illuminate\Http\Request;
 use App\Models\stories;
 use App\Models\page;
@@ -72,12 +74,10 @@ public function getFullData(Request $request,$id)
     {
 
     $story = stories::with('pages')->find($id);
-
+    $pages = Page::with('audios', 'texts')->get();
         return response()->json([
             'story' => $story,
-            
+           'pages'=> $pages,
         ]);
     }
 }
-
-
