@@ -21,6 +21,7 @@ class stories extends Model
     public function pages()
   {
     return $this->hasMany(page::class, 'story_id');
+    
   }
   
 }
