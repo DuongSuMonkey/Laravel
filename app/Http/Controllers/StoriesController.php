@@ -74,7 +74,7 @@ public function getFullData(Request $request,$id)
     {
 
     $story = stories::with('pages')->find($id);
-    $pages = Page::with('audios', 'texts')->get();
+    $pages = Page::with('audios', 'texts')->find($id);
         return response()->json([
             'story' => $story,
            'pages'=> $pages,
